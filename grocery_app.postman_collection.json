@@ -1,0 +1,412 @@
+{
+	"info": {
+		"_postman_id": "d4188097-18dd-4e5c-8d7b-b9b477503752",
+		"name": "grocery_app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13137523",
+		"_collection_link": "https://cloudy-equinox-90600.postman.co/workspace/2cf0a3e6-365b-4415-9b40-dc1eed95bfbd/collection/13137523-d4188097-18dd-4e5c-8d7b-b9b477503752?action=share&source=collection_link&creator=13137523"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"jhon doe\",\r\n    \"email\":\"jhondoe@gmail.com\",\r\n    \"password\":12345678,\r\n    \"role\":2 // Role 1 is for admin and 2 for normal user\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/signup",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"jhondoe@gmail.com\",\r\n    \"password\":123456789\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "groceries",
+			"item": [
+				{
+					"name": "add grocery",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzM0NzcxMTMzLCJleHAiOjE3MzczNjMxMzN9.kQnu6ZuS4r3qWo4mlZMV-07kwkForFgo8v6iT_UOMtY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzM0NzcxMTMzLCJleHAiOjE3MzczNjMxMzN9.kQnu6ZuS4r3qWo4mlZMV-07kwkForFgo8v6iT_UOMtY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"salt\",\r\n    \"price\":7,\r\n    \"stock\":130\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/groceries",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"groceries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all groceries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/groceries",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"groceries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one grocery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/groceries/3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"groceries",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update grocery",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzM0NzcxMTMzLCJleHAiOjE3MzczNjMxMzN9.kQnu6ZuS4r3qWo4mlZMV-07kwkForFgo8v6iT_UOMtY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"chips\",\r\n    \"price\":30,\r\n    \"stock\":300\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/groceries/3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"groceries",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update grocery stock",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzM0NzcxMTMzLCJleHAiOjE3MzczNjMxMzN9.kQnu6ZuS4r3qWo4mlZMV-07kwkForFgo8v6iT_UOMtY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"stock\":350\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/groceries/3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"groceries",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete grocery",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzM0NzcxMTMzLCJleHAiOjE3MzczNjMxMzN9.kQnu6ZuS4r3qWo4mlZMV-07kwkForFgo8v6iT_UOMtY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/groceries/3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"groceries",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzM0NzcxMTMzLCJleHAiOjE3MzczNjMxMzN9.kQnu6ZuS4r3qWo4mlZMV-07kwkForFgo8v6iT_UOMtY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"items\": [\r\n    {\r\n      \"groceryId\": 4,\r\n      \"quantity\": 2\r\n    },\r\n    {\r\n        \"groceryId\": 5,\r\n      \"quantity\": 4\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/orders",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all orders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzM0NzcxMTMzLCJleHAiOjE3MzczNjMxMzN9.kQnu6ZuS4r3qWo4mlZMV-07kwkForFgo8v6iT_UOMtY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"items\": [\r\n    {\r\n      \"groceryId\": 4,\r\n      \"quantity\": 2\r\n    },\r\n    {\r\n        \"groceryId\": 5,\r\n      \"quantity\": 4\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/orders",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get order by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzM0NzcxMTMzLCJleHAiOjE3MzczNjMxMzN9.kQnu6ZuS4r3qWo4mlZMV-07kwkForFgo8v6iT_UOMtY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"items\": [\r\n    {\r\n      \"groceryId\": 4,\r\n      \"quantity\": 2\r\n    },\r\n    {\r\n        \"groceryId\": 5,\r\n      \"quantity\": 4\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/orders/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"orders",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:5000/api/v1\n",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,12 @@
+# Keep environment variables out of version control
+node_modules
+dist
+.env
+.git
+
+
+# Exclude IDE and system files
+.vscode/
+.idea/
+*.DS_Store
+.serverless

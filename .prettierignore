@@ -1,0 +1,10 @@
+# Ignore artifacts:
+build
+coverage
+package-lock.json
+package.json
+.husky
+.prettierrc
+.prettierignore
+.eslintignore
+.env.*

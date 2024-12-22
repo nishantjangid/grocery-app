@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "ES6",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "paths": {
+        "config/*": ["config/*"]
+      }    
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"],
+//   "files": ["src/types/express/express.d.ts"]
+}

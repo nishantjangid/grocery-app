@@ -1,0 +1,13 @@
+{
+    "trailingComma": "all",
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": ["*.json", ".eslintrc"],
+        "options": {
+          "trailingComma": "none"
+        }
+      }
+    ]
+  }
+  
