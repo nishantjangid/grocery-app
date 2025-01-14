@@ -2,20 +2,17 @@ pipeline {
     agent any
 
     stages{
-        stage("Build") {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }   
+        stage('Build') {
+            steps {
+                script {                    
+                    sh 'npm install'
                 }
             }
-
-            steps {
-                sh '''
-                ls -la
-                npm i
-                '''
-            }
-        }
+        }             
     }
 }
